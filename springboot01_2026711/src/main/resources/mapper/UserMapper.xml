@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyh.springboot01_2026711.mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="com.lyh.springboot01_2026711.pojo.User_Mybatis">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+    </resultMap>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="id">
+        insert into user(username, password, name, age)
+        VALUES (#{username}, #{password}, #{name}, #{age})
+    </insert>
+    <update id="update">
+        update user
+        <set>
+            <if test="username != null"> username = #{username}, </if>
+            <if test="password != null">password = #{password},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="age != null">age = #{age},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+
+    <!-- 查询所有用户 -->
+    <select id="findAll" resultMap="UserResultMap">
+        SELECT id, username, password, name, age
+        FROM user
+    </select>
+
+
+    <select id="findByUsernameAndPassword" resultMap="UserResultMap">
+        select *
+        from user
+        where username  = #{username} and password = #{password}
+    </select>
+
+
+    <delete id="deleteById"   parameterType="integer" >
+        delete from user where id = #{id}
+    </delete>
+
+
+
+</mapper>

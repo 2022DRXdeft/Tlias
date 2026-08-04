@@ -1,0 +1,18 @@
+spring:
+  application:
+   name: tlias-web-managemnet
+
+  datasource:
+    # 数据库连接池
+    url: jdbc:mysql://127.0.0.1:3306/tlias?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowLoadLocalInfile=true
+    username: root
+    password: boda110120
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    # 配置mybatis的日志输出
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 开启驼峰命名 后端属性映射到数据库字段 如 userName 映射到 user_name
+    map-underscore-to-camel-case: true
