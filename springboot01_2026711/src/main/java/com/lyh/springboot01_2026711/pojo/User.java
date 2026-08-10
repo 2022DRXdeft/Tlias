@@ -16,8 +16,18 @@ public class User {
     private Integer id;
     private String username;
     private String password;
-    private String name;
-    private Integer age;
+    private String phone;
+
+    // 详细信息
+    private String info;
+    //使用状态(1正常2冻结)
+    private Integer status;
+
+    //账户余额
+    private String balance;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
+    private LocalDateTime createTime;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
     private LocalDateTime updateTime;

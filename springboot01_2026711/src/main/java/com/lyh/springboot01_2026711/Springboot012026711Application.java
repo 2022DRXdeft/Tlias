@@ -1,9 +1,11 @@
 package com.lyh.springboot01_2026711;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication //默认扫描当前包及其子包
+@SpringBootApplication
+@MapperScan("com.lyh.springboot01_2026711.mapper")
 public class Springboot012026711Application {
 
     public static void main(String[] args) {

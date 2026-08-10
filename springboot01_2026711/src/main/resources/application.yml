@@ -3,13 +3,15 @@ spring:
     name: springboot01_2026711
   datasource:
     # 数据库连接信息
-    url: jdbc:mysql://localhost:3306/test_20260712?useSSL=true&serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/mybatis-plus?useSSL=true&serverTimezone=Asia/Shanghai&characterEncoding=utf-8
     username: root
     password: boda110120
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-mybatis:
+mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     # 配置mybatis的日志输出
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 开启驼峰命名
+    map-underscore-to-camel-case: true
